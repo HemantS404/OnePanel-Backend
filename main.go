@@ -1,6 +1,8 @@
 package main
 
-import router "example/mongo-go/router"
+import (
+	router "example/mongo-go/router"
+)
 
 func main() {
 	r := router.Routers()

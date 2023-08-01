@@ -5,19 +5,24 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"os"
 
 	"github.com/gin-gonic/gin"
+	"github.com/joho/godotenv"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/bson/primitive"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
-const connectionString = "connection string"
-
 var client *mongo.Client
 
 func init() {
+	if err := godotenv.Load(); err != nil {
+		log.Fatal("Error loading .env file")
+	}
+	connectionString := os.Getenv("Connection_String")
+	fmt.Println(connectionString)
 	var err error
 	client, err = mongo.Connect(context.TODO(), options.Client().ApplyURI(connectionString))
 	if err != nil {
