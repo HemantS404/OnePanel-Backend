@@ -90,3 +90,13 @@ func PostArtifactSchema(c *gin.Context) {
 	}
 	c.IndentedJSON(http.StatusOK, gin.H{"message": insert.InsertedID})
 }
+
+func PostCollection(c *gin.Context) {
+	var schema primitive.M
+	res := client.Database("MetaDB").Collection("MetaArtifact").FindOne(context.Background(), bson.M{"Database": c.Param("database"), "Artifact": c.Param("artifact")})
+	if err := res.Decode(&schema); err != nil {
+		c.IndentedJSON(http.StatusBadRequest, err.Error())
+		return
+	}
+	c.IndentedJSON(http.StatusOK, gin.H{"message": schema["Schema"]})
+}
