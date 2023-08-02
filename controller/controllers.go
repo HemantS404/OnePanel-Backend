@@ -2,6 +2,7 @@ package controller
 
 import (
 	"context"
+	"example/mongo-go/util"
 	"fmt"
 	"log"
 	"net/http"
@@ -92,11 +93,25 @@ func PostArtifactSchema(c *gin.Context) {
 }
 
 func PostCollection(c *gin.Context) {
-	var schema primitive.M
+	var schema, data primitive.M
 	res := client.Database("MetaDB").Collection("MetaArtifact").FindOne(context.Background(), bson.M{"Database": c.Param("database"), "Artifact": c.Param("artifact")})
 	if err := res.Decode(&schema); err != nil {
 		c.IndentedJSON(http.StatusBadRequest, err.Error())
 		return
 	}
-	c.IndentedJSON(http.StatusOK, gin.H{"message": schema["Schema"]})
+	if err := c.BindJSON(&data); err != nil {
+		c.IndentedJSON(http.StatusBadRequest, err.Error())
+		return
+	}
+	if err := util.Validator(schema["Schema"], data); err != nil {
+		c.IndentedJSON(http.StatusBadRequest, err.Error())
+		return
+	}
+	collection := client.Database(schema["Database"].(string)).Collection(schema["Artifact"].(string))
+	insert, err := collection.InsertOne(context.Background(), data)
+	if err != nil {
+		c.IndentedJSON(http.StatusBadRequest, err.Error())
+		return
+	}
+	c.IndentedJSON(http.StatusOK, gin.H{"message": insert.InsertedID})
 }
