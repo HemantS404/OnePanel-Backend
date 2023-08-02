@@ -12,6 +12,7 @@ func Routers() *gin.Engine {
 	r.GET("/:database", controller.GetArtifacts)
 	r.GET("/:database/:artifact", controller.GetCollections)
 	r.POST("/:database/:artifact", controller.PostCollection)
+	r.GET("schema/:database/:artifact", controller.GetArtifactSchema)
 	r.POST("schema/:database/:artifact", controller.PostArtifactSchema)
 	return r
 }

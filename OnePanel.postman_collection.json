@@ -1,0 +1,149 @@
+{
+	"info": {
+		"_postman_id": "8e768d7d-768d-4ee0-8757-4b6149d7e4f9",
+		"name": "OnePanel",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25071399",
+		"_collection_link": "https://solar-sunset-288649.postman.co/workspace/karrom-team~603921f0-e668-4285-bdca-297962fb7f48/collection/25071399-8e768d7d-768d-4ee0-8757-4b6149d7e4f9?action=share&creator=25071399&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "Get-All-Database",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get-All-Database-Artifact",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Netflix",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Netflix"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get-All-Database-Artifact-Collection",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/Netflix/Users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Netflix",
+						"Users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post-Database-Artifact-Collection",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"hemant\",\r\n    \"age\":\"12\",\r\n    \"email\":\"abc@gmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/Netflix/Users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"Netflix",
+						"Users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get-Database-Artifact-Schema",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/schema/Netflix/Users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"schema",
+						"Netflix",
+						"Users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post-Database-Artifact-Schema",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":{\"type\":\"string\", \"required\":true},\r\n    \"age\":{\"type\":\"int\", \"required\":true},\r\n    \"email\":{\"type\":\"email\", \"required\":true}\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/schema/Netflix/Users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"schema",
+						"Netflix",
+						"Users"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
