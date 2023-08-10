@@ -5,8 +5,9 @@ from .models import Database, Artifact, Collection
 from .serializers import DatabaseSerializer, ArtifactSerializer, CollectionSerializer
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
-import openai
+import requests
 from rest_framework.views import APIView
+import json
 # Create your views here.
 
 class DatabaseAPI(GenericAPIView, ListModelMixin):
@@ -57,3 +58,20 @@ class CollectionSerializerAPI(GenericAPIView):
     def get(self, request, atr):
         serializer = self.serializer_class(self.queryset.filter(artifact = atr), many=True)
         return Response(serializer.data)
+    
+class CollectionSerializerDataAPI(APIView):
+    permission_classes = [IsAuthenticated]
+    def post(self, request, col):
+        obj = Collection.objects.filter(id = col)[0]
+        artifact = obj.artifact.id
+        collection = obj.id
+        # schema = obj.schema
+        data = json.dumps(request.data)
+        response = requests.post(f'http://localhost:8080/{artifact}/{collection}', data).json()
+        return Response(response)
+    def get(self, request, col):
+        obj = Collection.objects.filter(id = col)[0]
+        artifact = obj.artifact.id
+        collection = obj.id
+        response = requests.get(f'http://localhost:8080/{artifact}/{collection}').json()
+        return Response(response)

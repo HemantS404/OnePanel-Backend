@@ -1,0 +1,499 @@
+{
+	"info": {
+		"_postman_id": "b2652fb9-1187-4555-b7f5-e6848534f0a5",
+		"name": "OnePanel",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25071399",
+		"_collection_link": "https://solar-sunset-288649.postman.co/workspace/karrom-team~603921f0-e668-4285-bdca-297962fb7f48/collection/25071399-b2652fb9-1187-4555-b7f5-e6848534f0a5?action=share&creator=25071399&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "password",
+							"value": "pass@123",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "meow",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "hp@gmail.com",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/accounts/register/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"accounts",
+						"register",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "hp@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "pass@123",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/accounts/login/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"accounts",
+						"login",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Logout",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "refresh",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTY5MTc0MzY1MywiaWF0IjoxNjkxNjU3MjUzLCJqdGkiOiJmZjhhMTNmZjcxNTk0ZDZhODNjODlmNzYzNzc0MTdiNSIsInVzZXJfaWQiOjN9.qPN9msFmgYPOdurMh85sLs1vx4Rmay2MUcdLW5JidNw",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/accounts/logout/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"accounts",
+						"logout",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Token-Refresh",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "refresh",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTY5MTc0MzY1MywiaWF0IjoxNjkxNjU3MjUzLCJqdGkiOiJmZjhhMTNmZjcxNTk0ZDZhODNjODlmNzYzNzc0MTdiNSIsInVzZXJfaWQiOjN9.qPN9msFmgYPOdurMh85sLs1vx4Rmay2MUcdLW5JidNw",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/accounts/token-refresh/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"accounts",
+						"token-refresh",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET-DB",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjkxNjAxMjEzLCJpYXQiOjE2OTE1NjUyMTMsImp0aSI6IjhkOGU1ZmM3NjVlOTRmMjM4YmUwMTkzMGE1NzdmZGYzIiwidXNlcl9pZCI6M30.YJIGiTus3kmpQE7Q0jm4TN8a1uU_IO0g39XaOR8nnGQ",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "Authorization",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/handel-db/database/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"handel-db",
+						"database",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST-DB",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjkxNjAxMjEzLCJpYXQiOjE2OTE1NjUyMTMsImp0aSI6IjhkOGU1ZmM3NjVlOTRmMjM4YmUwMTkzMGE1NzdmZGYzIiwidXNlcl9pZCI6M30.YJIGiTus3kmpQE7Q0jm4TN8a1uU_IO0g39XaOR8nnGQ",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "Authorization",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "testdb1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/handel-db/database/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"handel-db",
+						"database",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET-Artifact",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjkxNjAxMjEzLCJpYXQiOjE2OTE1NjUyMTMsImp0aSI6IjhkOGU1ZmM3NjVlOTRmMjM4YmUwMTkzMGE1NzdmZGYzIiwidXNlcl9pZCI6M30.YJIGiTus3kmpQE7Q0jm4TN8a1uU_IO0g39XaOR8nnGQ",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "Authorization",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/handel-db/{db}/artifact/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"handel-db",
+						"{db}",
+						"artifact",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST-Artifact",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjkxNjAxMjEzLCJpYXQiOjE2OTE1NjUyMTMsImp0aSI6IjhkOGU1ZmM3NjVlOTRmMjM4YmUwMTkzMGE1NzdmZGYzIiwidXNlcl9pZCI6M30.YJIGiTus3kmpQE7Q0jm4TN8a1uU_IO0g39XaOR8nnGQ",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "Authorization",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "ShantiTrip",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/handel-db/{db}/artifact/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"handel-db",
+						"{db}",
+						"artifact",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST-Collection-Details",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjkxNjAxMjEzLCJpYXQiOjE2OTE1NjUyMTMsImp0aSI6IjhkOGU1ZmM3NjVlOTRmMjM4YmUwMTkzMGE1NzdmZGYzIiwidXNlcl9pZCI6M30.YJIGiTus3kmpQE7Q0jm4TN8a1uU_IO0g39XaOR8nnGQ",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "Authorization",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Trip\",\r\n    \"schema\":{\r\n        \"name\":{\r\n            \"type\":\"string\",\r\n            \"required\":true\r\n        },\r\n        \"destination\":{\r\n            \"type\":\"string\",\r\n            \"required\":true\r\n        }\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/handel-db/{atr}/collection",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"handel-db",
+						"{atr}",
+						"collection"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET-Collection-Details",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjkxNjAxMjEzLCJpYXQiOjE2OTE1NjUyMTMsImp0aSI6IjhkOGU1ZmM3NjVlOTRmMjM4YmUwMTkzMGE1NzdmZGYzIiwidXNlcl9pZCI6M30.YJIGiTus3kmpQE7Q0jm4TN8a1uU_IO0g39XaOR8nnGQ",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "Authorization",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/handel-db/{atr}/collection",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"handel-db",
+						"{atr}",
+						"collection"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST-Collection-Data",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjkxNjgyOTEyLCJpYXQiOjE2OTE2NDY5MTIsImp0aSI6ImQyZWFjMzRiMDhmMTQ0MjRiNGIwM2YyYTY4ZDZkY2JlIiwidXNlcl9pZCI6M30.k_DaudLc77M1U2wRPXc7ot8IemYkPNcKHufOdEfuHaA",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "Authorization",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"DubaiTrip\",\r\n    \"destination\":\"Dubai\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/handel-db/{col}/collection-data",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"handel-db",
+						"{col}",
+						"collection-data"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET-Collection-Data",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/handel-db/{col}/collection-data",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"handel-db",
+						"{col}",
+						"collection-data"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
