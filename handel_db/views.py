@@ -8,10 +8,11 @@ from rest_framework.response import Response
 import requests
 from rest_framework.views import APIView
 import json
+from accounts.permisions import IsVerified
 # Create your views here.
 
 class DatabaseAPI(GenericAPIView, ListModelMixin):
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated, IsVerified]
     serializer_class = DatabaseSerializer
     queryset = Database.objects
 
@@ -30,7 +31,7 @@ class DatabaseAPI(GenericAPIView, ListModelMixin):
         return self.list(request)
     
 class ArtifactAPI(GenericAPIView):
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated, IsVerified]
     serializer_class = ArtifactSerializer
     queryset = Artifact.objects
 
@@ -45,7 +46,7 @@ class ArtifactAPI(GenericAPIView):
         return Response(serializer.data)
     
 class CollectionSerializerAPI(GenericAPIView):
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated, IsVerified]
     serializer_class = CollectionSerializer
     queryset = Collection.objects
 
@@ -60,7 +61,7 @@ class CollectionSerializerAPI(GenericAPIView):
         return Response(serializer.data)
     
 class CollectionSerializerDataAPI(APIView):
-    permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated, IsVerified]
     def post(self, request, col):
         obj = Collection.objects.filter(id = col)[0]
         artifact = obj.artifact.id

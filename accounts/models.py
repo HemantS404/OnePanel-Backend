@@ -7,8 +7,11 @@ class User(AbstractBaseUser):
     name = models.CharField(max_length = 20)
     email = models.EmailField(unique = True)
 
+    email_token =  models.CharField(max_length = 250, null = True, blank = True)
+    password_reset_token = models.CharField(max_length = 250, null = True, blank = True)
     is_active = models.BooleanField(default = True)
     is_admin = models.BooleanField(default = False)
+    is_email_verified = models.BooleanField(default = False)
     
     objects = UserManager()
     
@@ -27,3 +30,6 @@ class User(AbstractBaseUser):
     @property
     def is_staff(self):
         return self.is_admin
+    
+    def is_verified(self):
+        return self.is_email_verified

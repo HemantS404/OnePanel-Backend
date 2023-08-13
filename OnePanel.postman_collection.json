@@ -4,7 +4,7 @@
 		"name": "OnePanel",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "25071399",
-		"_collection_link": "https://solar-sunset-288649.postman.co/workspace/karrom-team~603921f0-e668-4285-bdca-297962fb7f48/collection/25071399-b2652fb9-1187-4555-b7f5-e6848534f0a5?action=share&creator=25071399&source=collection_link"
+		"_collection_link": "https://solar-sunset-288649.postman.co/workspace/karrom-team~603921f0-e668-4285-bdca-297962fb7f48/collection/25071399-b2652fb9-1187-4555-b7f5-e6848534f0a5?action=share&source=collection_link&creator=25071399"
 	},
 	"item": [
 		{
@@ -490,6 +490,79 @@
 						"handel-db",
 						"{col}",
 						"collection-data"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST-Email-Verification",
+			"request": {
+				"auth": {
+					"type": "apikey",
+					"apikey": [
+						{
+							"key": "value",
+							"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjkxOTgwMDc3LCJpYXQiOjE2OTE5NDQwNzcsImp0aSI6IjNkYzYwOTk5MTJlZjQ4YmNiMjNhOTkyOGQ0ZGE2Zjk1IiwidXNlcl9pZCI6M30.UjJ5BxZtug1t5VmEZaPC5liCdUCNPAHvAJTJBbp-8XM",
+							"type": "string"
+						},
+						{
+							"key": "key",
+							"value": "Authorization",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/accounts/email-verification/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"accounts",
+						"email-verification",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST-Password-Reset",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "hp@gmail.com",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/accounts/password-reset/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"accounts",
+						"password-reset",
+						""
 					]
 				}
 			},
